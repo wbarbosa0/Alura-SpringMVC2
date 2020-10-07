@@ -7,7 +7,7 @@
 		<div>
 <div th:replace="~{base::titulo('Novo pedido')}"></div>
 			<div class="card mt-3">
-				<form th:object="${novoPedidoDto}" action="/pedido/novo"
+				<form th:object="${novoPedidoDto}" th:action="@{/pedido/novo}"
 					class="card-body" method="POST">
 
 					<div class="form-group">

@@ -1,10 +1,10 @@
-package br.nom.warbosa.mvc.mudi.dto;
+package br.nom.wbarbosa.mvc.mudi.dto;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-import br.nom.warbosa.mvc.mudi.model.entity.Pedido;
-import br.nom.warbosa.mvc.mudi.model.entity.StatusPedido;
+import br.nom.wbarbosa.mvc.mudi.model.entity.Pedido;
+import br.nom.wbarbosa.mvc.mudi.model.entity.StatusPedido;
 
 public class NovoPedidoDto {
 	@NotBlank
@@ -54,8 +54,8 @@ public class NovoPedidoDto {
 		this.descricao = descricao;
 	}
 
-	public Pedido toPedido() {
-		Pedido pedido = new Pedido();
+	public br.nom.wbarbosa.mvc.mudi.model.entity.Pedido toPedido() {
+		Pedido pedido = new br.nom.wbarbosa.mvc.mudi.model.entity.Pedido();
 
 		pedido.setDescricao(descricao);
 		pedido.setNomeProduto(nomeProduto);

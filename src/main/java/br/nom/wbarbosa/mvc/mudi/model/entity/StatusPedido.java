@@ -1,4 +1,4 @@
-package br.nom.warbosa.mvc.mudi.model.entity;
+package br.nom.wbarbosa.mvc.mudi.model.entity;
 
 public enum StatusPedido {
 	AGUARDANDO, APROVADO, ENTREGUE

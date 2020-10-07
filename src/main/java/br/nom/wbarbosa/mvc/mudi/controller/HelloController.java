@@ -1,4 +1,4 @@
-package br.nom.warbosa.mvc.mudi.controller;
+package br.nom.wbarbosa.mvc.mudi.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

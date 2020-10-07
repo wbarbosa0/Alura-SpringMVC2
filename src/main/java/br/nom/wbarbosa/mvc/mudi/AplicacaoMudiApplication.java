@@ -1,4 +1,4 @@
-package br.nom.warbosa.mvc.mudi;
+package br.nom.wbarbosa.mvc.mudi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
