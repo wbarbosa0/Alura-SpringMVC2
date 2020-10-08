@@ -1,14 +1,14 @@
 package br.nom.wbarbosa.mvc.mudi.controller;
 
-import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -24,27 +24,13 @@ public class HomeController {
 	private PedidoRepository pedidoRepository;
 
 	@GetMapping
-	public ModelAndView home(Principal principal) {
+	public ModelAndView home() {
 
-		List<br.nom.wbarbosa.mvc.mudi.model.entity.Pedido> pedidos = pedidoRepository
-				.findByUsuario(principal.getName());
-
-		ModelAndView mv = new ModelAndView("home");
-		mv.addObject("pedidos", pedidos);
-
-		return mv;
-	}
-
-	@GetMapping("{status}")
-	public ModelAndView home(@PathVariable String status) {
-		status = status.toUpperCase();
-		String username = SecurityContextHolder.getContext().getAuthentication().getName();
-
-		List<Pedido> pedidos = pedidoRepository.findByStatus(StatusPedido.valueOf(status));
+		Pageable pageable = PageRequest.of(1, 10, Sort.by("dataEntrega").descending());
+		List<Pedido> pedidos = pedidoRepository.findByStatus(StatusPedido.ENTREGUE, pageable);
 
 		ModelAndView mv = new ModelAndView("home");
 		mv.addObject("pedidos", pedidos);
-		mv.addObject("status", status);
 
 		return mv;
 	}

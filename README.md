@@ -28,7 +28,15 @@
 
 ## Aula 3 - Paginação e Cache
 ### Implementações
+* Implementada página **/usuario/home** baseada em **/home**, que mostra somente os pedidos do usuário;
+* **/home** passa a mostrar todos os pedidos cm status entregue e não terá opção para incluir um novo pedido, nem menu de seleção de estado;
+* Alterado conteúdo do Jumbotron de /home para **Últimos pedidos** para diferenciar de **/usuario/home**;
+* Busca ordenada dos pedidos em **/home**;
+* Implantado objeto Pagable na busca de **/home** para trazer os 10 últimos pedidos entregues ordenados por data de entrega descrescente;
+* Cache da consulta dos últimos pedidos.
+
 ### Extras
+* Itens do menu de navegação passam a ter as cores dos card-headers correspondentes.
 
 ## Aula 4 - Construindo uma API REST
 ### Implementações

@@ -38,11 +38,9 @@ public class PedidoController {
 	public ModelAndView home(@Valid NovoPedidoDto novoPedidoDto, BindingResult result) {
 		ModelAndView mv = new ModelAndView("redirect:/home");
 
-		System.out.println("Inicio");
 		if (result.hasErrors()) {
 			return mv;
 		}
-		System.out.println("Passou hasErrors");
 
 		String username = SecurityContextHolder.getContext().getAuthentication().getName();
 		Pedido pedido = novoPedidoDto.toPedido();
