@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="~{base::head}"></head>
+<body>
+	<div th:replace="~{base::logo}"></div>
+	<div class="container">
+		<div th:replace="~{base::titulo('Últimos pedidos')}"></div>
+
+		<div th:each="pedido : ${pedidos}" class="card mb-3 mt-3">
+			<th:block th:switch="${pedido.status.name()}">
+				<div th:case="'AGUARDANDO'" th:text="${pedido.nomeProduto}"
+					class="card-header alert-warning">Nome Produto</div>
+				<div th:case="'APROVADO'" th:text="${pedido.nomeProduto}"
+					class="card-header alert-success">Nome Produto</div>
+				<div th:case="'ENTREGUE'" th:text="${pedido.nomeProduto}"
+					class="card-header alert-dark">Nome Produto</div>
+				<div th:case="*"
+					th:text="** Pedido com status inválido ** - ${pedido.nomeProduto}"
+					class="card-header alert-danger">Nome Produto</div>
+			</th:block>
+
+			<div class="card-body">
+				<div class="row">
+					<div class="col-12 col-sm-6 mb-3">
+						<div class="row">
+							<div class="col-md-5">
+								Valor <span th:if="${pedido.valorNegociado != null}"
+									th:text="'R$ '+${#numbers.formatDecimal(pedido.valorNegociado,1,'POINT',2,'COMMA')}">R$
+									240,90</span>
+							</div>
+							<div class="col-md-7">
+								Data da Entrega <span
+									th:text="${#temporals.format(pedido.dataEntrega, 'dd/MM/yyyy')}">19/12/2020</span>
+							</div>
+						</div>
+						<div>Produto</div>
+						<div>
+							<input class="form-control" th:value="${pedido.urlProduto}"
+								value="URL do Produto"></input>
+						</div>
+						<div>Descrição</div>
+						<div>
+							<textarea class="form-control" th:text="${pedido.descricao}"> Descrição do Produto </textarea>
+						</div>
+					</div>
+					<div class="col-12 col-sm-6 ">
+						<div>
+							<img class="img-thumbnail" th:src="${pedido.urlImagemProduto}" src:"" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</body>
+</html>

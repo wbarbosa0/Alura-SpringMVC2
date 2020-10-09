@@ -40,7 +40,11 @@
 
 ## Aula 4 - Construindo uma API REST
 ### Implementações
+* Implementado REST Controller em **/api/pedidos/aguardando** para trazer 10 pedidos com status de aguardando
+* Criada página que irá consumir esta API REST em **/oferta/home** , que será customizada com Vue.js na próxima aula
+
 ### Extras
+* Devido a erro de recursão, anotamos o lado ManyToOne do relacionamento com @JsonIgnore
 
 ## Aula 5 - AJAX e Vue.js
 ### Implementações

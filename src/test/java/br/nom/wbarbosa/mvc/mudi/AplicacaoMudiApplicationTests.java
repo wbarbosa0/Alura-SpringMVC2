@@ -1,4 +1,4 @@
-package br.nom.warbosa.mvc.mudi;
+package br.nom.wbarbosa.mvc.mudi;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

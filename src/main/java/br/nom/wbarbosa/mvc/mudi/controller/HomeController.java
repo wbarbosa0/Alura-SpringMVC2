@@ -26,7 +26,7 @@ public class HomeController {
 	@GetMapping
 	public ModelAndView home() {
 
-		Pageable pageable = PageRequest.of(1, 10, Sort.by("dataEntrega").descending());
+		Pageable pageable = PageRequest.of(0, 10, Sort.by("dataEntrega").descending());
 		List<Pedido> pedidos = pedidoRepository.findByStatus(StatusPedido.ENTREGUE, pageable);
 
 		ModelAndView mv = new ModelAndView("home");
