@@ -48,6 +48,8 @@
 
 ## Aula 5 - AJAX e Vue.js
 ### Implementações
+* Implementação de Vue.js e Axiom em **ofertas/home** para consumir API REST implementado no capítulo anterior;
+
 ### Extras
 
 ## Aula 6 - Validações com Vue.js
