@@ -49,6 +49,8 @@
 ## Aula 5 - AJAX e Vue.js
 ### Implementações
 * Implementação de Vue.js e Axiom em **ofertas/home** para consumir API REST implementado no capítulo anterior;
+* Implementação do endpoint **/ofertas/** para cadastro de ofertas
+* Ajustes em Pedido e criação da entidade Oferta
 
 ### Extras
 
