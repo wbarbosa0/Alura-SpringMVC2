@@ -112,4 +112,12 @@ public class Pedido {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
+
+	public List<Oferta> getOfertas() {
+		return ofertas;
+	}
+
+	public void setOfertas(List<Oferta> ofertas) {
+		this.ofertas = ofertas;
+	}
 }

@@ -56,7 +56,13 @@
 
 ## Aula 6 - Validações com Vue.js
 ### Implementações
+* Captura de informações com o Vue.js aproveitando o objeto pedido carregado;
+* Armazenamento da oferta em banco de dados
+ 
+
 ### Extras
+* Nome do produto como link no card header ao invés do card body;
+* Descrição do produto como paragraph ao invés de um textarea disbled (Deselegante);
 
 ## Aula 7 - Monitoramento com Interceptadores
 ### Implementações
