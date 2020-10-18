@@ -21,12 +21,16 @@
 						</div>
 						<div class="row">
 							<div class="col-md-5">
-								<label>Valor</label> <input v-model="pedido.valorNegociado"
-									class="form-control" />
+								<label>Valor</label> <input
+									v-bind:class="{'is-invalid':pedido.erros.valor != ''}"
+									v-model="pedido.valorNegociado" class="form-control" />
+								<div v-if="pedido.erros.valor" class="invalid-feedback">{{pedido.erros.valor}}</div>
 							</div>
 							<div class="col-md-7">
 								<label>Data da Entrega</label> <input
+									v-bind:class="{'is-invalid':pedido.erros.dataEntrega != ''}"
 									v-model="pedido.dataEntrega" class="form-control" />
+								<div v-if="pedido.erros.dataEntrega" class="invalid-feedback">{{pedido.erros.dataEntrega}}</div>
 							</div>
 						</div>
 						<div class="mt-2">
@@ -40,9 +44,10 @@
 						</div>
 					</div>
 				</div>
-				<button v-if="pedido.ofertaCadastrada" class="btn btn-success">Oferta Enviada</button>
-				<button v-else v-on:click="enviarOferta(pedido)" class="btn btn-primary">Enviar
-					oferta</button>
+				<button v-if="pedido.ofertaCadastrada" class="btn btn-success">Oferta
+					Enviada</button>
+				<button v-else v-on:click="enviarOferta(pedido)"
+					class="btn btn-primary">Enviar oferta</button>
 			</div>
 			<script>
 			function onload() {
@@ -53,12 +58,23 @@
 					}, mounted(){
 						axios.get('http://localhost:8080/api/pedidos/aguardando')
 						.then(response => {
-							response.data.forEach(pedido => pedido.ofertaCadastrada=false)
+							response.data.forEach(pedido => {
+								pedido.ofertaCadastrada=false;
+								 pedido.erros = {
+										 valor : '',
+										 dataEntrega : ''
+								 }
+							})
 							this.pedidos = response.data;
 						})
 					}, 
 					methods:{
 						enviarOferta: function(pedido){
+		
+							pedido.erros = {
+									 valor : '',
+									 dataEntrega : ''
+							}
 							
 							axios.post('http://localhost:8080/api/ofertas',{
 								pedidoId : pedido.id,
@@ -70,7 +86,13 @@
 								 pedido.ofertaCadastrada = true;
 								 console.log(pedido);
 								}
-							);
+							)
+							.catch(error => {
+								error.response.data.errors.forEach(
+										erro => {
+											pedido.erros[erro.field] = erro.defaultMessage;
+										})
+							});
 						}
 					}
 				

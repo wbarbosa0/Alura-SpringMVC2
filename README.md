@@ -57,8 +57,8 @@
 ## Aula 6 - Validações com Vue.js
 ### Implementações
 * Captura de informações com o Vue.js aproveitando o objeto pedido carregado;
-* Armazenamento da oferta em banco de dados
- 
+* Armazenamento da oferta em banco de dados;
+* Exibir mensagens de erro de consistência dos campos da oferta na tela. 
 
 ### Extras
 * Nome do produto como link no card header ao invés do card body;
