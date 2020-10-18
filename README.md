@@ -66,4 +66,9 @@
 
 ## Aula 7 - Monitoramento com Interceptadores
 ### Implementações
+* Implementação de interceptor para cálculo de tempo de cada request;
+* Armazenamento de objeto de acesso em ArrayList acessos em memória
+* RestController para exibir objetos de acesso.
+
 ### Extras
+* Limitação de objetos de acesso no ArrayList acessos.
